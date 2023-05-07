@@ -1,0 +1,19 @@
+.main_component {
+    height: 100vh;
+    align-items: center;
+}
+
+mat-card {
+    width: 80%;
+    height: 80%;
+}
+mat-card-header {
+    display: initial;
+}
+
+.div-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}

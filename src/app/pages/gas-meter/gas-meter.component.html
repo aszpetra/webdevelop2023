@@ -1,0 +1,45 @@
+<div class="main_component" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+        <mat-card-header>
+            <mat-card-title>
+                Új gázóra hozzáadása
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content></mat-card-content>
+        <mat-card-actions class="div-flex">
+            <form [formGroup]="meterForm" (ngSubmit)="addMeter()">
+                <div>
+                    <mat-form-field>
+                        <mat-label for="name">Név: </mat-label>
+                        <input matInput type="text" formControlName="name"/>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label for="start">Óraállás: </mat-label>
+                        <input matInput type="number" formControlName="start"/>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button color="warn" type="submit">Létrehoz</button>
+                </div>
+            </form>
+        </mat-card-actions>
+    </mat-card>
+    <div *ngIf="meters.length" class="table">
+        <table>
+            <tr>
+                <th>Név</th>
+                <th>Kezdeti óraállás</th>
+                <th>Jelenlegi óraállás</th>
+            </tr>
+            <tr *ngFor="let meter of meters; let i = index;"
+                [ngStyle]="{'background-color' : i % 2 === 0 ? 'gray' : 'darkgray'}">
+                <td>{{meter.name}}</td>
+                <td>{{meter.start}}</td>
+                <td>{{meter.current}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

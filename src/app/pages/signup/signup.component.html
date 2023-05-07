@@ -1,0 +1,22 @@
+<div class="main_component">
+    <div class="div-flex">
+        <h1>Regisztráció</h1>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <mat-form-field><mat-label for="email">Email: </mat-label><input matInput type="text" formControlName="email"/></mat-form-field>
+            <mat-error *ngIf="signUpForm.get('email')?.invalid">{{getEmailErrorMessage()}}</mat-error>
+
+            <mat-form-field><mat-label for="password">Jelszó: </mat-label><input matInput type="password" formControlName="password"/></mat-form-field>
+            <mat-error *ngIf="signUpForm.get('password')?.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            <mat-form-field><mat-label for="rePassword">Jelszó megerősítése: </mat-label><input matInput type="password" formControlName="rePassword"/></mat-form-field>
+            <mat-error *ngIf="signUpForm.get('rePassword')?.invalid">{{getRePasswordErrorMessage()}}</mat-error>
+            <div formGroupName="name" class="subForm">
+                <mat-form-field><mat-label for="firstName">Vezetéknév: </mat-label><input matInput type="text" formControlName="firstName"/></mat-form-field>
+                <mat-form-field><mat-label for="lastName">Keresztnév: </mat-label><input matInput type="text" formControlName="lastName"/></mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button color="warn" type="submit">Regisztráció</button>
+                <button mat-raised-button color="warn" (click)="goBack()">Van már fiókja?</button>
+            </div>
+        </form>
+    </div>
+</div>

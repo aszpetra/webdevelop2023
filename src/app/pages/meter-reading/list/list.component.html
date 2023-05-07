@@ -1,0 +1,7 @@
+<div class="meterList">
+    <mat-form-field appearance="fill">
+        <mat-select (selectionChange)="reload()" [(ngModel)]="chosenGasmeter">
+            <mat-option *ngFor="let obj of meterInput" [value]="obj">{{obj.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

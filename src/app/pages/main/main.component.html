@@ -1,0 +1,23 @@
+<ng-content></ng-content>
+<div class="main_component"  fxLayout="column"  fxLayoutAlign="center center">
+    <h1>Bediktált adatok:</h1>
+    <div *ngIf="readings.length" fxLayout  fxLayoutAlign="center center">
+        <table>
+            <tr>
+                <th>Dátum</th>
+                <th>Diktált érték</th>
+                <th>Gázóra</th>
+                <th>Törlés</th>
+            </tr>
+            <tr *ngFor="let reading of readings; let i = index;"
+                [ngStyle]="{'background-color' : i % 2 === 0 ? 'gray' : 'darkgray'}">
+                <td>{{reading.date | dateFormat}}</td>
+                <td>{{reading.reading}}</td>
+                <td>{{reading.meter}}</td>
+                <td>
+                    <button mat-button (click)="delete(reading.id)">Törlés</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webfejlbeadando": {
+      "hosting": {
+        "webkeret-projekt": [
+          "webfejlbeadando"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webfejlbeadando"
+  }
+}

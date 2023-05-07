@@ -1,0 +1,26 @@
+<div class="main_component" fxLayout fxLayoutAlign="center center">
+        <mat-card fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <mat-card-header>
+                <mat-card-title>
+                    Óraállás bediktálása
+                </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <meter-list (meterEmitter)="getMeterName($event)"></meter-list>
+            </mat-card-content>
+            <mat-card-actions class="div-flex">
+                <form [formGroup]="readingForm" (ngSubmit)="addReading()">
+                    <div>
+                        <mat-form-field>
+                            <mat-label for="reading">Gázóra állás: </mat-label>
+                            <input matInput [(ngModel)]="update_current" type="number" formControlName="reading"/>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button mat-raised-button color="warn" type="submit">Bediktálás</button>
+                    </div>
+                </form>
+            </mat-card-actions>
+        </mat-card>
+</div>
